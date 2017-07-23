@@ -1,6 +1,6 @@
 var model = {
- recordURLs: localStorage.recordURLs,
- recordTitles: localStorage.recordTitles,
+ recordURLs: [],
+ recordTitles: [],
 }
 
 var controller = {
@@ -16,20 +16,22 @@ var controller = {
     });
   },
 
-  initLocalStorage: function(){
-    localStorage.setItem("recordURLs", []);
-    localStorage.setItem("recordTitles", []);
-  },
-
   addNewRecord: function(){
     $("#newRecord").submit(function(){
-      localStorage.recordURLs.push($("#URL").val());
-      localStorage.recordTitles.push($("#name").val());
+      if($("#URL").val() !== "" && $("#name").val() !== ""){
+        model.recordURLs.push($("#URL").val());
+        model.recordTitles.push($("#name").val());
+        view.displayRecords();
+      } else if($("#URL").val() === "" && $("#name").val() !== ""){
+        model.RecordURLS.push("images\\record.png");
+        model.recordTitles.push($("#name").val());
+      } else {
+        alert("Please Fill Out Record Name");
+      }
     });
   },
 
   init: function() {
-    this.initLocalStorage();
     this.addNewRecord();
     this.clickOnModalX();
     this.addRecordListener();
@@ -43,6 +45,17 @@ var view = {
 
   hideRecordMenu: function(){
     $(".modal").css("display", "none");
+  },
+
+  displayRecords: function(){
+    if(model.recordURLs.length === model.recordTitles.length){
+      for(var i = 0; i < model.recordUrls.length; i++){
+        $(".recordContainer").append('<div class="record"> \
+          <img src='+ recordURLs[i] + ' alt="a record" class="recordImg"></img> \
+          <p class="recordTxt">'+ recordTitles[i] + '</p> \
+        </div>')
+      }
+    }
   }
 }
 
