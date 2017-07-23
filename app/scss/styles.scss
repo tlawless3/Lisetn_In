@@ -1,0 +1,80 @@
+$red: #cc223e;
+
+body {
+  background-color: $red;
+  text-align: center;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.recordContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.recordImg{
+  width: 100%;
+}
+
+.record{
+  min-width: 80px;
+}
+
+.modal{
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  left:0;
+  top: 0;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modalContent{
+  margin: 15% auto;
+  padding: 20px;
+  padding-top: 10px;
+  width: 200px;
+  background-color: $red;
+  z-index: 2;
+  border-radius: 5px;
+  #submit {
+    font-family: inherit;
+    margin-top: 15px;
+    height: 40px;
+  }
+  .close{
+    text-align: right;
+  }
+  #modalX:hover,
+  #modalX:focus{
+    color: #aaa;
+    cursor: pointer;
+    text-decoration: none;
+  }
+}
+
+#addRecord{
+  order: 999;
+}
+#addRecord:hover,
+#addRecord:focus{
+  cursor: pointer;
+}
+
+@media screen and (max-width: 720px){
+  .record{
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 721px){
+  .record{
+    width: 33.3%;
+  }
+}
+
+@media screen and (min-width: 960px){
+
+}
