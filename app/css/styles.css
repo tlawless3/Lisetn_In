@@ -38,6 +38,8 @@ body {
     height: 40px; }
   .modalContent .close {
     text-align: right; }
+  .modalContent #modalX {
+    font-size: 30px; }
   .modalContent #modalX:hover,
   .modalContent #modalX:focus {
     color: #aaa;

@@ -10,11 +10,14 @@ var controller = {
     });
   },
 
-  clickOutsideModal: function(){
-    $("modal").on("click")
-  }
+  clickOnModalX: function(){
+    $("#modalX").on("click",function(){
+      view.hideRecordMenu();
+    });
+  },
 
   init: function() {
+    this.clickOnModalX();
     this.addRecordListener();
   },
 }
