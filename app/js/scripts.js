@@ -1,6 +1,6 @@
 var model = {
- recordUrls: [],
- recordTitles: [],
+ recordURLs: localStorage.recordURLs,
+ recordTitles: localStorage.recordTitles,
 }
 
 var controller = {
@@ -16,7 +16,21 @@ var controller = {
     });
   },
 
+  initLocalStorage: function(){
+    localStorage.setItem("recordURLs", []);
+    localStorage.setItem("recordTitles", []);
+  },
+
+  addNewRecord: function(){
+    $("#newRecord").submit(function(){
+      localStorage.recordURLs.push($("#URL").val());
+      localStorage.recordTitles.push($("#name").val());
+    });
+  },
+
   init: function() {
+    this.initLocalStorage();
+    this.addNewRecord();
     this.clickOnModalX();
     this.addRecordListener();
   },
